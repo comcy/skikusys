@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<h:head>
+	<title>Kurswahlsystem der Schillerschule Aalen - <ui:insert name="title" /></title>
+	<ui:insert name="headers" />
+</h:head>
+<h:body>
+<h:outputStylesheet library="css" name="style.css"/>
+	<t:div id="container">
+		<h:graphicImage library="img" name="header.jpg" alt="HeaderImage"/>
+		<t:div id="titlebar">
+			<h:panelGrid columns="3" style="text-align:right; width:980px;">
+				<ui:insert name="title" />
+				<h:outputText style="color:lightgray;" rendered="#{kuwasys.userRole()==null?false:true}" value="Schuljahr #{kuwasys.year}/#{kuwasys.year+1} | Tertial: #{kuwasys.tertial} | #{kuwasys.systemPhase()}"/>
+				<h:outputText style="color:lightgray;" rendered="#{kuwasys.userRole()==null?false:true}" value="#{userBean.showUserFullName()} | #{request.remoteUser} &#8834; #{kuwasys.userRole()}"/>
+			</h:panelGrid>
+		</t:div>
+		<h:panelGrid columns="2">
+		<ui:include src="/navigation.xhtml"/>
+		<t:div id="content"><ui:insert name="content" /></t:div>
+		</h:panelGrid>
+	</t:div>
+	<t:div id="footer">Kurswahlsystem - Schillerschule Aalen - MI-Projektarbeit im WS12/13 HTW-Aalen - Christian Silfang/Michael Schütz</t:div>
+</h:body>
+</html>

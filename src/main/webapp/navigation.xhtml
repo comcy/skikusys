@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:t="http://myfaces.apache.org/tomahawk">
+<body>
+	<ui:composition>
+		<t:div id="nav" styleClass="navigation">
+			<h:form>
+				<t:panelNavigation2 id="nav1" width="200px" layout="list" itemClass="off" activeItemClass="on" openItemClass="open" renderAll="false" expandAll="false">
+					
+					<t:navigationMenuItem value="Startseite" id="home" action="#{kuwasys.goHome}" visibleOnUserRole="admin,lehrer,schueler"/>
+					
+					<t:navigationMenuItem value="Schüler verwalten" id="schüler" action="#{kuwasys.goUsers}" visibleOnUserRole="admin">
+						<t:navigationMenuItem value=" - importieren" id="csvimport" action="#{kuwasys.goImportCSV}" visibleOnUserRole="admin"/>
+						<t:navigationMenuItem value=" - hinzufügen" id="studentadd" action="#{kuwasys.goAddUser}" visibleOnUserRole="admin"/>
+					</t:navigationMenuItem>
+					
+					<t:navigationMenuItem value="Lehrer verwalten" id="lehrer" action="#{kuwasys.goTeachers}" visibleOnUserRole="admin">
+						<t:navigationMenuItem value=" - hinzufügen" id="teacheradd" action="#{kuwasys.goAddTeacher}" visibleOnUserRole="admin"/>
+					</t:navigationMenuItem>
+					
+					<t:navigationMenuItem value="Klasse" id="klasse" action="#{kuwasys.goClasses}" visibleOnUserRole="lehrer">
+						<t:navigationMenuItem value=" - Terminplan" id="classschedule" action="#{kuwasys.goClassesSchedule}" visibleOnUserRole="admin,lehrer"/>
+					</t:navigationMenuItem>
+					<t:navigationMenuItem value="Terminplan" id="classesschedule" action="#{kuwasys.goClassesSchedule}" visibleOnUserRole="admin"/>
+					<t:navigationMenuItem value="Kurse" id="kurse" action="#{kuwasys.goCourses}" visibleOnUserRole="admin,lehrer,schueler">
+						<t:navigationMenuItem value=" - Teilnehmerliste" id="attenderslist" action="#{kuwasys.goListAttenders}" visibleOnUserRole="admin,lehrer"/>
+						<t:navigationMenuItem value=" - hinzufügen" id="courseadd" action="#{kuwasys.goAddCourse}" visibleOnUserRole="admin,lehrer"/>
+						<t:navigationMenuItem value=" - Kursbuch" id="coursebook" action="#{kuwasys.goCoursebook}" visibleOnUserRole="schueler"/>
+
+					</t:navigationMenuItem>
+					
+					<t:navigationMenuItem value="Notenübersicht" id="notenübersicht" action="#{kuwasys.goGradelist}" visibleOnUserRole="schueler"/>
+					
+					<t:navigationMenuItem value="System" id="system" action="#{kuwasys.goSystem}" visibleOnUserRole="admin">
+						<t:navigationMenuItem value=" - Phase setzen" id="system_phaseset" action="#{kuwasys.goPhaseSet}" visibleOnUserRole="admin"/>
+						<t:navigationMenuItem value=" - nächstes Tertial" id="system_tertialnext" action="#{kuwasys.goTertialNext}" visibleOnUserRole="admin"/>
+					</t:navigationMenuItem>					
+					
+					<t:navigationMenuItem value="Einstellungen" id="einstellungen" action="#{kuwasys.goHome}" visibleOnUserRole="admin,lehrer,schueler">
+						<t:navigationMenuItem value=" - Passwort ändern" id="changepw" action="#{kuwasys.goChangePassword}" visibleOnUserRole="admin"/>
+						<t:navigationMenuItem value=" - Passwort generieren" id="generatepw" action="#{kuwasys.goGeneratePassword}" visibleOnUserRole="lehrer,schueler"/>
+					</t:navigationMenuItem>
+					
+					<t:navigationMenuItem value="Abmelden" id="logout" action="#{kuwasys.goLogout}" visibleOnUserRole="admin,lehrer,schueler"/>
+				
+				</t:panelNavigation2>
+			</h:form>
+		</t:div>
+	</ui:composition>
+</body>
+</html>

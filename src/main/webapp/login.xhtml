@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ui:composition template="template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+
+
+	<ui:define name="title">
+        Anmeldung
+    </ui:define>
+
+	<ui:define name="content">
+
+		<h1>Anmeldung</h1>
+		<h:panelGroup>Hallo zum Kurswahlsystem der Schillerschule Aalen! <br /> </h:panelGroup>
+
+		<form id="login_form" method="POST" action="j_security_check" name="loginForm">
+           <h:panelGrid columns="2">
+                <h:outputLabel id="userNameLabel" for="j_username" value="Kürzel:"/>
+                <h:inputText id="j_username" autocomplete="off" />
+                <h:outputLabel id="passwordLabel" for="j_password" value="Passwort:"/>
+                <h:inputSecret id="j_password" autocomplete="off"/>
+                <div/>
+                <h:panelGroup>
+                    <h:commandButton type="submit" value="Anmelden"/>
+                </h:panelGroup>
+            </h:panelGrid>
+		</form>
+
+	</ui:define>
+
+</ui:composition>

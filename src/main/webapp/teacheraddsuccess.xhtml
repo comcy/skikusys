@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ui:composition template="template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:define name="title">Lehrerverwaltung</ui:define>
+	<ui:define name="content">
+		<h1>Lehrerverwaltungsinformationen</h1>
+
+			<h:form id="teacheraddsuccess_name">
+				<h3><h:message globalOnly="true" for="teacheraddsuccess_name" infoStyle="color: green;"
+					errorStyle="color: red;" /></h3>
+			</h:form>
+			<br />
+
+			<h:form id="teacheraddsuccess_username">
+				<h3><h:message globalOnly="true" for="teacheraddsuccess_username"
+					infoStyle="color: green;" errorStyle="color: red;" /></h3>
+			</h:form>
+			
+			<h:form id="teacheraddsuccess_password">
+				<h3><h:message globalOnly="true" for="teacheraddsuccess_password"
+					infoStyle="color: green;" errorStyle="color: red;" /></h3>
+			</h:form>
+			
+			<h:form>
+				<h:commandButton 	value="Weiteren Lehrer hinzufügen" 
+									action="#{kuwasys.goAddTeacher}"></h:commandButton>
+				<h:commandButton 	value="PDF generieren" 
+									action="#{exportBean.download}"></h:commandButton>					
+			</h:form>
+
+	</ui:define>
+</ui:composition>
